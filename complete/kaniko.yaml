@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kaniko
+spec:
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    imagePullPolicy: Always
+    # Command and args are important to set in this manner such that the
+    # Jenkins Pipeline can send commands to be executed from the Jenkinsfile via
+    # stdin (that's how it really works!)
+    command:
+    - /busybox/sh
+    - "-c"
+    args:
+    - /busybox/cat
+    tty: true
+  #  Kaniko requires a registry, so we're just bringing one online in the pod
+  #  for the intermediate caching of layers
