@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-test
+  name: api2-test
   labels:
-    app: api
+    app: api2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: api2
   template:
     metadata:
       labels:
-        app: api
+        app: api2
     spec:
       containers:
-      - name: api
+      - name: api2
         image: nexus-service/transaction-history:v1
         ports:
         - containerPort: 8088
