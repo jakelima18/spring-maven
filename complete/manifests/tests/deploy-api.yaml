@@ -40,18 +40,3 @@ spec:
           value: flexDev
         ports:
         - containerPort: 27017
-
-
-services:
-  flex-transaction-history:
-    image: flex/transaction-history
-    restart: always
-    ports:
-      - 80:8088
-    environment:
-      SPRING_DATA_MONGODB_AUTHENTICATION-DATABASE: admin
-      SPRING_DATA_MONGODB_USERNAME: root
-      SPRING_DATA_MONGODB_PASSWORD: flexDev
-      SPRING_DATA_MONGODB_HOST: flex-mongo
-      SPRING_DATA_MONGODB_PORT: 27017
-      SPRING_DATA_MONGODB_DATABASE: flex        
