@@ -6,3 +6,5 @@ podTemplate(label: 'maven', containers: [
   podTemplate(label: 'kubectl', containers: [
     containerTemplate(name: 'kubectl', image: 'gcr.io/cloud-builders/kubectl', ttyEnabled: true, command: 'cat'),
   ])
+
+  asdfasd
