@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: nexus-service/transaction-history:v1
+        image: nexus-claroflex.clarobrasil.mobi/spring-maven:30
         ports:
         - containerPort: 8088
         env:
@@ -30,28 +30,3 @@ spec:
           value: "flexDev"  
         - name: SPRING_DATA_MONGODB_PORT
           value: "27017"     
-      
-      - name: mongo
-        image: mongo:4.2
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          value: root
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          value: flexDev
-        ports:
-        - containerPort: 27017
-
-
-services:
-  flex-transaction-history:
-    image: flex/transaction-history
-    restart: always
-    ports:
-      - 80:8088
-    environment:
-      SPRING_DATA_MONGODB_AUTHENTICATION-DATABASE: admin
-      SPRING_DATA_MONGODB_USERNAME: root
-      SPRING_DATA_MONGODB_PASSWORD: flexDev
-      SPRING_DATA_MONGODB_HOST: flex-mongo
-      SPRING_DATA_MONGODB_PORT: 27017
-      SPRING_DATA_MONGODB_DATABASE: flex
